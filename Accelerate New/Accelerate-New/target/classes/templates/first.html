@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+ 
+
+<head>
+
+ 
+
+<meta charset="ISO-8859-1">
+<title>Employees</title>
+
+ 
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+ 
+
+ 
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+	<div class="container my-2">
+<h1>Employees List</h1>
+
+
+<form th:action = "@{/filter}" th:object="${email}" method ="post">
+<label>Select Date: <input type="date" th:field="*{date}"/></label>
+<button type="submit"> Filter </button>
+</form>
+
+ 
+
+		
+
+<table border="1" class="table table-striped table-responsive-md">
+<thead>
+<tr style="background-color: rgba(250, 176, 187, 0.932);">
+<th>EMP#</th>
+<th>Approval</th>
+<th>Movement</th>
+<th>Emp Unit</th>
+<th>PM</th>
+<th>DM</th>
+<th>SEM</th>
+<th>Location</th>
+<th>Contractor Id</th>
+<th>Contractor Name</th>
+<th>SOW ID</th>
+<th>End Date</th>
+<th>Attrition category</th>
+<th>Attrition Reason</th>
+<th>GDCE ID</th>
+<th>Deployment</th>
+<th>Skill</th>
+</tr>
+
+</thead>
+<tbody>
+<tr th:each="item : ${list}">
+
+<td th:text="${item.empId}"></td>
+<td th:text="${item.approvalMail}"></td>
+<td th:text="${item.movement}"></td>
+<td th:text="${item.empUnit}"></td>
+<td th:text="${item.projectManager}"></td>
+<td th:text="${item.deliveryManager}"></td>
+<td th:text="${item.sem}"></td>
+<td th:text="${item.location}"></td>
+<td th:text="${item.contractorId}"></td>
+<td th:text="${item.contractorName}"></td>
+<td th:text="${item.sowId}"></td>
+<td th:text="${item.endDate}"></td>
+<td th:text="${item.attritionCategory}"></td>
+<td th:text="${item.attritionReason}"></td>
+<td th:text="${item.gdceId}"></td>
+<td th:text="${item.redeployment}"></td>
+<td th:text="${item.skill}"></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</body>
+
+ 
+
+</html>

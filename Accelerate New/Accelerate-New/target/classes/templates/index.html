@@ -1,0 +1,85 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resource Offboarding List</title>
+<style>
+        table {
+            margin: 20px;
+            border: #ccc 1px solid;
+        }
+        table,td,th{
+         border:2px Solid ;
+            border-collapse: collapse;
+            border-style: solid;
+            color:Black;
+            text-align: center;
+            }
+           
+    </style>
+</head>
+<body>
+<h1>Data Filtering and Email Sending</h1>
+
+  <form th:action="@{/filter}" th:object="${email}" method="post">
+<label>Date: <input type="date" th:field="*{date}" /></label>
+<button type="submit">Filter</button>
+</form>
+
+<h2>Yes Table</h2>
+<table>
+<tr th:each="data : ${yesData}">
+<td th:text="${data.empId}"></td>
+<td th:text="${data.approvalMail}"></td>
+<td th:text="${data.movement}"></td>
+<td th:text="${data.empUnit}"></td>
+<td th:text="${data.projectManager}"></td>
+<td th:text="${data.deliveryManager}"></td>
+<td th:text="${data.sem}"></td>
+<td th:text="${data.location}"></td>
+<td th:text="${data.contractorId}"></td>
+<td th:text="${data.contractorName}"></td>
+<td th:text="${data.sowId}"></td>
+<td th:text="${data.endDate}"></td>
+<td th:text="${data.attritionCategory}"></td>
+<td th:text="${data.attritionReason}"></td>
+<td th:text="${data.gdceId}"></td>
+<td th:text="${data.redeployment}"></td>
+<td th:text="${data.skill}"></td>
+          </tr>
+</table>
+
+<h2>No Table</h2>
+<table>
+<tr th:each="data : ${noData}">
+<td th:text="${data.empId}"></td>
+<td th:text="${data.approvalMail}"></td>
+<td th:text="${data.movement}"></td>
+<td th:text="${data.empUnit}"></td>
+<td th:text="${data.projectManager}"></td>
+<td th:text="${data.deliveryManager}"></td>
+<td th:text="${data.sem}"></td>
+<td th:text="${data.location}"></td>
+<td th:text="${data.contractorId}"></td>
+<td th:text="${data.contractorName}"></td>
+<td th:text="${data.sowId}"></td>
+<td th:text="${data.endDate}"></td>
+<td th:text="${data.attritionCategory}"></td>
+<td th:text="${data.attritionReason}"></td>
+<td th:text="${data.gdceId}"></td>
+<td th:text="${data.redeployment}"></td>
+<td th:text="${data.skill}"></td>
+          </tr>
+</table>
+
+<form th:action="@{/send-email}" th:object="${email}" method="post">
+<label>To: <input type="text" th:field="*{to}" /></label><br/>
+<label>CC: <input type="text" th:field="*{cc}" /></label><br/>
+<label>BCC: <input type="text" th:field="*{bcc}" /></label><br/>
+<label>Subject: <input type="text" th:field="*{subject}" /></label><br/>
+<label>Content: <textarea th:field="*{content}"></textarea></label><br/>
+<button type="submit">Send Email</button>
+</form>
+</body>
+
+
+	</html>

@@ -1,0 +1,168 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resource Offboarding List</title>
+<style>
+        table {
+            margin: 20px;
+            border: #ccc 1px solid;
+        }
+        table,td,th{
+         border:2px Solid ;
+            border-collapse: collapse;
+            border-style: solid;
+            color:Black;
+            text-align: center;
+            }
+           
+    </style>
+</head>
+<body>
+<p>Hi All,<br>
+<p> PFB the list of Resources for the <span th:text="${date}"></span>  which needs to be closed. If any off boarding need to be kept on hold, please get back to us by 2:00 PM IST. <br>
+
+•	As per our process, any notification received less than 2 weeks, Kindly get Ramaprakash_Shroff / Puneet Mody approval to off-board the resource except for Quit, Leave and movement cases.<br>
+•	Please provide the actual reason for off-boarding, also kindly let us know if resource is available for re-deployment for role ended cases.<br>
+•	Share the screenshot of My-learning portal home page to (dg.offboardinginfosys@bofa.com) for the below resource to off-board from FG ASAP.<p>
+<br>
+<br>
+<table>
+<tr style="background-color:orange" >
+<th>SEM</th>
+<th>Role Ended</th>
+<th>SOW movement</th>
+<th>Quit</th>
+<th>Grand Total</th>
+</tr>
+<tbody>
+<tr th:each="item : ${mini}">
+<td th:text="${item.sem}"></td>
+<td th:text="${item.roleEnded}"></td>
+<td th:text="${item.movement}"></td>
+<td th:text="${item.quit}"></td>
+<td th:text="${item.total}"></td>
+
+</tr>
+</tbody>
+</table>
+	<!-- <table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="item : ${tableData}">
+<td th:text="${item.column1}"></td>
+<td th:text="${item.column2}"></td>
+</tr>
+</tbody>
+</table>-->
+
+	<table>
+		<caption style="text-align: left;">
+			<u><b><span style="background-color: aqua;">Received
+						Approval:</span></b></u>
+		</caption>
+		<br>
+		<tr style="background-color: rgba(250, 176, 187, 0.932);">
+			<br>
+			<br>
+			<th>EMP#</th>
+			<th>Approval</th>
+			<th>Movement</th>
+			<th>Emp Unit</th>
+			<th>PM</th>
+			<th>DM</th>
+			<th>SEM</th>
+			<th>Location</th>
+			<th>Contractor Id</th>
+			<th>Contractor Name</th>
+			<th>SOW ID</th>
+			<th>End Date</th>
+			<th>Attrition category</th>
+			<th>Attrition Reason</th>
+			<th>GDCE ID</th>
+			<th>Deployment</th>
+			<th>Skill</th>
+
+		</tr>
+		<tbody>
+			<tr th:each="item : ${yesItems}">
+				<td th:text="${item.empId}"></td>
+				<td th:text="${item.approvalMail}"></td>
+				<td th:text="${item.movement}"></td>
+				<td th:text="${item.empUnit}"></td>
+				<td th:text="${item.projectManager}"></td>
+				<td th:text="${item.deliveryManager}"></td>
+				<td th:text="${item.sem}"></td>
+				<td th:text="${item.location}"></td>
+				<td th:text="${item.contractorId}"></td>
+				<td th:text="${item.contractorName}"></td>
+				<td th:text="${item.sowId}"></td>
+				<td th:text="${item.endDate}"></td>
+				<td th:text="${item.attritionCategory}"></td>
+				<td th:text="${item.attritionReason}"></td>
+				<td th:text="${item.gdceId}"></td>
+				<td th:text="${item.redeployment}"></td>
+				<td th:text="${item.skill}"></td>
+
+			</tr>
+		</tbody>
+
+	</table>
+
+	<table>
+		<caption style="text-align: left;">
+			<u><b><span style="background-color: aqua;">Yet to
+						Receive Approval:</span></b></u>
+		</caption>
+		<br>
+		<tr style="background-color: rgba(250, 176, 187, 0.932);">
+			<br>
+			<br>
+			<th>EMP#</th>
+			<th>Approval</th>
+			<th>Movement</th>
+			<th>Emp Unit</th>
+			<th>PM</th>
+			<th>DM</th>
+			<th>SEM</th>
+			<th>Location</th>
+			<th>Contractor Id</th>
+			<th>Contractor Name</th>
+			<th>SOW ID</th>
+			<th>End Date</th>
+			<th>Attrition category</th>
+			<th>Attrition Reason</th>
+			<th>GDCE ID</th>
+			<th>Deployment</th>
+			<th>Skill</th>
+
+		</tr>
+		<tbody>
+			<tr th:each="item : ${noItems}">
+				<td th:text="${item.empId}"></td>
+				<td th:text="${item.approvalMail}"></td>
+				<td th:text="${item.movement}"></td>
+				<td th:text="${item.empUnit}"></td>
+				<td th:text="${item.projectManager}"></td>
+				<td th:text="${item.deliveryManager}"></td>
+				<td th:text="${item.sem}"></td>
+				<td th:text="${item.location}"></td>
+				<td th:text="${item.contractorId}"></td>
+				<td th:text="${item.contractorName}"></td>
+				<td th:text="${item.sowId}"></td>
+				<td th:text="${item.endDate}"></td>
+				<td th:text="${item.attritionCategory}"></td>
+				<td th:text="${item.attritionReason}"></td>
+				<td th:text="${item.gdceId}"></td>
+				<td th:text="${item.redeployment}"></td>
+				<td th:text="${item.skill}"></td>
+
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
